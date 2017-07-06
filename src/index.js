@@ -1,2 +1,2 @@
 angular
-  .module('app', ['ui.router', 'ngResource', 'ngMaterial']);
+  .module('app', ['ui.router', 'ngResource', 'ngMaterial', 'ngCookies']);
