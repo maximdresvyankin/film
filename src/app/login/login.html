@@ -1,0 +1,14 @@
+<div class="login"  layout="column" layout-align="space-around stretch">
+    <header flex-gt-xs="none" ng-include=' "app/login/login.header.html" '></header>
+    <main flex="auto" layout="row">
+        <div flex="grow"
+             layout="column" layout-align="start stretch">
+            <div ng-include=' "app/login/login.form.html" '></div>
+            <div ng-if="$ctrl.error" layout="row" layout-align="center center" md-colors="{'background-color':'accent-500'}"
+            layout-margin="true">
+                <div>{{ $ctrl.error }}</div>
+            </div>
+        </div>
+    </main>
+    <footer flex-gt-xs="none" ng-include=' "app/login/login.footer.html" '></footer>
+</div>

@@ -1,0 +1,100 @@
+<form method="post" flex="grow" novalidate layout="row" autocomplete="off"
+      layout-padding="true"
+      layout-align="center center"
+      name="$ctrl.registerForm">
+    <div layout="column" flex-lg="40"
+         flex-md="60"
+         flex-sm="80"
+         flex-xs="90">
+        <div class="inputGroupContainer" flex="grow" layout="row" layout-align="space-between">
+            <md-input-container flex="40" layout="column">
+                <div layout="row" layout-align="center stretch">
+                    <label>Ваше і'мя</label>
+                    <input id="username" ng-model="$ctrl.username" autocomplete="off"
+                           name="username" type="text"
+                           required>
+                </div>
+                <div ng-messages="$ctrl.registerForm.login.$error" >
+
+                </div>
+            </md-input-container>
+            <md-input-container flex="40" layout="column">
+                <div layout="row" layout-align="center stretch">
+                    <label>Оберіть логін</label>
+                    <input id="login" ng-model="$ctrl.login" autocomplete="off"
+                           name="login" type="text"
+                           required>
+                </div>
+                <div ng-messages="$ctrl.registerForm.login.$error" >
+
+                </div>
+            </md-input-container>
+        </div>
+        <div class="inputGroupContainer" flex="grow" layout="row" layout-align="space-between">
+            <md-input-container flex="40" layout="column" >
+                <div layout="row" layout-align="center stretch">
+                    <label>Пароль</label>
+                    <input type='password' id="password"
+                           ng-model="$ctrl.password" autocomplete="off"
+                           name="password"
+                           ng-pattern='/.*/'
+                           required>
+                </div>
+                <div ng-messages="$ctrl.registerForm.password.$error">
+                </div>
+            </md-input-container>
+            <md-input-container flex="40" layout="column" >
+                <div layout="row" layout-align="center stretch">
+                    <label>Пароль ще раз</label>
+                    <input type='password' id="passwordRepeat"
+                           ng-model="$ctrl.passwordRepeat" autocomplete="off"
+                           name="passwordRepeat"
+                           ng-pattern='/.*/'
+                           required>
+                </div>
+                <div ng-messages="$ctrl.registerForm.passwordRepeat.$error"> </div>
+            </md-input-container>
+        </div>
+        <div class="inputGroupContainer" flex="grow" layout="row" layout-align="space-between">
+            <md-input-container flex="40" layout="column">
+                <div layout="row" layout-align="center stretch">
+                    <label>Скільки вам років?</label>
+                    <input id="age" ng-model="$ctrl.age" autocomplete="off"
+                           name="age" type="range"
+                           min = 13
+                           max = 99
+                           required>
+                </div>
+                <span>Кажуть, що вам {{$ctrl.age}}</span>
+                <div ng-messages="$ctrl.registerForm.login.$error" >
+
+                </div>
+
+            </md-input-container>
+            <md-input-container flex="40" layout="column" >
+                <div layout="row" layout-align="center stretch">
+                    <label>Телефон</label>
+                    <input type='tel' id="telephone"
+                           ng-model="$ctrl.telephone"
+                           name="telephone"
+                           ng-pattern='/^[0-9]{12}$/'>
+                </div>
+                <div ng-messages="$ctrl.registerForm.telephone.$error">
+                    <div ng-message="pattern">Має містити 12 цифр</div>
+                </div>
+            </md-input-container>
+        </div>
+
+
+        <div layout="row" layout-align="space-between start">
+            <div flex-xs="100" flex-sm="100" flex-gt-sm="initial">
+                <md-button ng-click="$ctrl.showLogin = !$ctrl.showLogin" class="md-accent md-hue-1">Ні, я хочу увійти</md-button>
+            </div>
+        </div>
+        <div layout="row">
+            <md-button flex="grow" ng-click="$ctrl.goRegister()" class="md-raised md-accent md-hue-3"
+                       ng-disabled="$ctrl.registerForm.$invalid"> Увійти
+            </md-button>
+        </div>
+    </div>
+</form>

@@ -1,3 +1,16 @@
-body {
-  background-color: lightgrey;
+$headerBackground: rgb(196, 205, 255);
+$bodyBackground: rgb(240, 240, 240);
+$textColor: rgba(100, 100, 100, 1);
+
+
+html, body,div.login {
+  height: 100%;
+}
+
+h1 {
+  color: $textColor;
+}
+
+header, footer {
+  background-color: $headerBackground;
 }

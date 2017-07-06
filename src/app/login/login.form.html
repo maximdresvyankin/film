@@ -1,0 +1,46 @@
+<form method="post" flex="grow" novalidate layout="row" autocomplete="off"
+      layout-padding="true"
+      layout-align="center center"
+      name="$ctrl.loginForm"
+      ng-show = $ctrl.showLogin>
+    <div layout="column" flex-lg="25"
+         flex-md="30"
+         flex-sm="40"
+         flex-xs="90">
+        <md-input-container flex="50" flex-xs="grow" layout="column">
+            <div layout="row" layout-align="center stretch">
+                <label>Логін</label>
+                <input id="login" ng-model="$ctrl.username" autocomplete="off"
+                       name="login" type="text"
+                       required>
+            </div>
+            <div ng-messages="$ctrl.loginForm.login.$error" >
+
+            </div>
+
+        </md-input-container>
+        <md-input-container flex="50" flex-xs="grow" layout="column" >
+            <div layout="row" layout-align="center stretch">
+                <label>Пароль</label>
+                <input type='password' id="clientPassword"
+                       ng-model="$ctrl.password" autocomplete="off"
+                       name="password"
+                       ng-pattern='/.*/'
+                       required>
+            </div>
+            <div ng-messages="$ctrl.loginForm.password.$error">
+            </div>
+        </md-input-container>
+        <div layout="row" layout-align="space-between start">
+            <div flex-xs="100" flex-sm="100" flex-gt-sm="initial">
+                <md-button ng-click="$ctrl.showLogin=false" class="md-accent md-hue-1">Реєстрація</md-button>
+            </div>
+        </div>
+        <div layout="row">
+            <md-button flex="grow" ng-click="$ctrl.goLogin()" class="md-raised md-accent md-hue-3"
+                       ng-disabled="$ctrl.loginForm.$invalid"> Увійти
+            </md-button>
+        </div>
+    </div>
+</form>
+<register ng-show = !$ctrl.showLogin show-login=$ctrl.showLogin></register>
