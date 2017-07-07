@@ -1,0 +1,28 @@
+<div ui-view></div>
+<div class="viewAs" layout="row">
+    <md-content flex="grow" md-colors="{ 'background-color':'warn-100'}" layout-padding>
+        <p class="md-subhead">Дивитися:
+            <md-button class="md-rased md-accent" ng-click="$ctrl.showAs = 'tile'">плиткою</md-button> або
+            <md-button class="md-rased md-accent" ng-click="$ctrl.showAs = 'list'">списком</md-button>
+        </p>
+    </md-content>
+</div>
+<div layout="row" layout-wrap="true" layout-align="space-between stretch">
+        <md-card ng-repeat="film in $ctrl.filmList" flex="20" ng-if="$ctrl.showAs == 'tile'">
+            <img src="assets/foto_nordiskfilm.jpg" class="md-card-image" alt="image caption">
+            <md-card-content>
+                <h2>{{film.name}}</h2>
+                <p>{{film.year}}</p>
+                <p>Додано <span class="small"> {{ film.added_at | date }}</span></p>
+            </md-card-content>
+            <md-card-footer>
+                <md-button class="md-raised md-primary"><a  class="whiteLink" ui-sref=".detail({ filmId: {{film.id}}, film: {{film}} })">Деталі</a></md-button>
+            </md-card-footer>
+        </md-card>
+        <div layout="row" flex="grow" ng-repeat="film in $ctrl.filmList" ng-if="$ctrl.showAs == 'list'"
+             ng-class-odd="'md-accent'" ng-class-even="'even'" layout-align="space-between stretch" layout-padding>
+            <div flex="20">{{film.name}}</div>
+            <div flex="10">{{film.year}}</div>
+            <div flex="10"><md-button class="md-raised md-primary"><a class="whiteLink " ui-sref=".detail({ filmId: {{film.id}}, film: {{film}} })">Деталі</a></md-button></div>
+        </div>
+</div>
