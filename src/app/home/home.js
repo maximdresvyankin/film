@@ -1,6 +1,3 @@
-/**
- * Created by mdresvyankin on 01.02.17.
- */
 angular
   .module('home')
   .component('home', {
