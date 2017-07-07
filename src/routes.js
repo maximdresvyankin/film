@@ -23,5 +23,10 @@ function homeRoutesConfig($stateProvider) {
     .state('home', {
       url: '/home',
       component: 'home'
+    })
+    .state('home.detail', {
+      url: '/details/:filmId',
+      component: 'filmDetail',
+      cache: false
     });
 }
