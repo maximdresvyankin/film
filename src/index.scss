@@ -1,16 +1,43 @@
-$headerBackground: rgb(196, 205, 255);
-$bodyBackground: rgb(240, 240, 240);
-$textColor: rgba(100, 100, 100, 1);
+$headerBackground: rgba(196, 205, 255, 0.3);
+$bodyBackground: rgba(240, 240, 240, 0.3);
+$textColor: rgba(100, 100, 100, 0.3);
 
+@mixin pageSize() {
+  max-width: 80%;
+  margin: auto;
+}
 
-html, body,div.login {
-  height: 100%;
+body {
+  background: transparent url('assets/bg.jpg') top center repeat;
+  display: table;
 }
 
 h1 {
   color: $textColor;
 }
 
+a.whiteLink {
+  color: white;
+  text-decoration: none;
+  transform: color 1s;
+  &:hover {
+    color: $bodyBackground;
+  }
+}
+
 header, footer {
+  background-color: $headerBackground;
+}
+
+main, header, footer {
+  @include pageSize();
+}
+
+main {
+  background-color: white;
+}
+
+.small {
+ font-size: 70%;
   background-color: $headerBackground;
 }
