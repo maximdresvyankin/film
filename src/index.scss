@@ -41,3 +41,16 @@ main {
  font-size: 70%;
   background-color: $headerBackground;
 }
+
+film-detail {
+  .genres {
+
+  }
+  .badge {
+    span {
+      padding: 5px;
+      margin-left:5px;
+      border-radius: 5px;
+    }
+  }
+}

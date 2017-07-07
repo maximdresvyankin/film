@@ -1,0 +1,30 @@
+<div layout="row" layout-margin="false" layout-wrap="true" layout-align="space-around stretch">
+    <div flex="grow">
+        <div layout="row"><h1>{{$ctrl.film.name}}</h1></div>
+        <div layout="row" flex="grow">
+            <div class="filmImage" flex="20">
+                <img src="assets/foto_nordiskfilm.jpg" class="md-card-image" alt="image caption">
+            </div>
+            <div class="filmDetails" flex="80">
+                <div class="year" layout="row" layout-align="start center">
+                    <p>Рік виходу на экрани: {{$ctrl.film.year}}</p>
+                </div>
+                <div class="genres" layout="row" layout-align="start center">
+                    <div class="md-subhead">Жанри:</div>
+                    <div class="badge" ng-repeat="genre in $ctrl.film.genres">
+                        <span class="small">{{ genre.name }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="getFilm" flex="grow" layout="row" layout-align="end center" layout-margin>
+            <div ng-if="$ctrl.isAuth"><a class="whiteLink"><md-button class="md-accent md-raised">Оренда фільма</md-button></a></div>
+            <div ng-if="!$ctrl.isAuth">
+                <a class="whiteLink" ui-sref="home.login"><md-button class="md-accent md-raised">Увійдіть</md-button></a>
+                або
+                <a class="whiteLink" ui-sref="home.register"><md-button class="md-accent md-raised">Зареэструйтися</md-button></a>
+                для того, щоб арендувати фільм
+            </div>
+        </div>
+    </div>
+</div>
