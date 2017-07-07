@@ -1,0 +1,3 @@
+<div class="navbab">
+    <md-button class="md-raised md-primary" ng-repeat="menu in $ctrl.showMenu | orderBy: id"><a class="whiteLink" ui-sref="{{menu.state}}">{{menu.name}}</a></md-button>
+</div>
