@@ -23,8 +23,8 @@ function loginController(loginService, isAuthService, $cookies, $state, $log) {
       goLogin.$promise.then(response => {
         const token = response.token;
         $cookies.put('token', token);
-        isAuthService.authenticated = true;
-        $state.go('home');
+        isAuthService.authenticated();
+        $state.go('home', {}, {reload: true});
       }, error => {
         vm.error = error.data.error;
       });

@@ -12,7 +12,7 @@ angular
     require: '^loginController'
   });
 
-function registerController(loginService, $log) {
+function registerController(loginService, $state) {
   const vm = this;
 
   vm.goRegister = () => {
@@ -24,8 +24,8 @@ function registerController(loginService, $log) {
         age: vm.age,
         telephone: vm.telephone
       };
-      loginService.register(toRegister).then(response => {
-        $log.debug(response);
+      loginService.register(toRegister).then(() => {
+        $state.go('home.login', {}, {reload: false});
       });
     }
   };

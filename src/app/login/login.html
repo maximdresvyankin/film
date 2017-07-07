@@ -1,14 +1,47 @@
-<div class="login"  layout="column" layout-align="space-around stretch">
-    <header flex-gt-xs="none" ng-include=' "app/login/login.header.html" '></header>
-    <main flex="auto" layout="row">
-        <div flex="grow"
-             layout="column" layout-align="start stretch">
-            <div ng-include=' "app/login/login.form.html" '></div>
-            <div ng-if="$ctrl.error" layout="row" layout-align="center center" md-colors="{'background-color':'accent-500'}"
-            layout-margin="true">
-                <div>{{ $ctrl.error }}</div>
+<form method="post" flex="grow" novalidate layout="row" autocomplete="off"
+      layout-padding="true"
+      layout-align="center center"
+      name="$ctrl.loginForm"
+      ng-show = $ctrl.showLogin>
+    <div layout="column" flex-lg="25"
+         flex-md="30"
+         flex-sm="40"
+         flex-xs="90">
+        <md-input-container flex="50" flex-xs="grow" layout="column">
+            <div layout="row" layout-align="center stretch">
+                <label>Логін</label>
+                <input id="login" ng-model="$ctrl.username" autocomplete="off"
+                       name="login" type="text"
+                       required>
+            </div>
+            <div ng-messages="$ctrl.loginForm.login.$error" >
+
+            </div>
+
+        </md-input-container>
+        <md-input-container flex="50" flex-xs="grow" layout="column" >
+            <div layout="row" layout-align="center stretch">
+                <label>Пароль</label>
+                <input type='password' id="clientPassword"
+                       ng-model="$ctrl.password" autocomplete="off"
+                       name="password"
+                       ng-pattern='/.*/'
+                       required>
+            </div>
+            <div ng-messages="$ctrl.loginForm.password.$error">
+            </div>
+        </md-input-container>
+        <div layout="row" layout-align="space-between start">
+            <div flex-xs="100" flex-sm="100" flex-gt-sm="initial">
+                <md-button class="md-accent md-hue-1"><a class="whiteLink" ui-sref="register">Реєстрація</a></md-button>
             </div>
         </div>
-    </main>
-    <footer flex-gt-xs="none" ng-include=' "app/login/login.footer.html" '></footer>
-</div>
+        <div layout="row">
+            <md-button flex="grow" ng-click="$ctrl.goLogin()" class="md-raised md-accent md-hue-3"
+                       ng-disabled="$ctrl.loginForm.$invalid"> Увійти
+            </md-button>
+            <md-button class="md-raised md-primary"><a ui-sref="home" class="whiteLink">Закрити</a></md-button>
+        </div>
+    </div>
+</form>
+<register ng-show = !$ctrl.showLogin show-login=$ctrl.showLogin></register>
