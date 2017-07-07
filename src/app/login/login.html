@@ -33,14 +33,14 @@
         </md-input-container>
         <div layout="row" layout-align="space-between start">
             <div flex-xs="100" flex-sm="100" flex-gt-sm="initial">
-                <md-button class="md-accent md-hue-1"><a class="whiteLink" ui-sref="register">Реєстрація</a></md-button>
+                <a class="whiteLink" ui-sref="register"><md-button class="md-accent md-hue-1">Реєстрація</md-button></a>
             </div>
         </div>
         <div layout="row">
             <md-button flex="grow" ng-click="$ctrl.goLogin()" class="md-raised md-accent md-hue-3"
                        ng-disabled="$ctrl.loginForm.$invalid"> Увійти
             </md-button>
-            <md-button class="md-raised md-primary"><a ui-sref="home" class="whiteLink">Закрити</a></md-button>
+            <a ui-sref="home" class="whiteLink"><md-button class="md-raised md-primary">Закрити</md-button></a>
         </div>
     </div>
 </form>

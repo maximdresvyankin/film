@@ -88,14 +88,14 @@
 
         <div layout="row" layout-align="space-between start">
             <div flex-xs="100" flex-sm="100" flex-gt-sm="initial">
-                <md-button><a class="whiteLink" ui-sref="login">Ні, я хочу увійти</a></md-button>
+                <a class="whiteLink" ui-sref="login"><md-button>Ні, я хочу увійти</md-button></a>
             </div>
         </div>
         <div layout="row" layout-align="space-between">
             <md-button ng-click="$ctrl.goRegister()" class="md-raised md-accent md-hue-3"
                        ng-disabled="$ctrl.registerForm.$invalid"> Увійти
             </md-button>
-            <md-button class="md-raised md-primary"><a ui-sref="home" class="whiteLink">Не бажаю реєструватися</a></md-button>
+            <a ui-sref="home" class="whiteLink"><md-button class="md-raised md-primary">Не бажаю реєструватися</md-button></a>
         </div>
     </div>
 </form>

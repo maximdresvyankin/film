@@ -16,13 +16,21 @@
                 <p>Додано <span class="small"> {{ film.added_at | date }}</span></p>
             </md-card-content>
             <md-card-footer>
-                <md-button class="md-raised md-primary"><a  class="whiteLink" ui-sref=".detail({ filmId: {{film.id}}, film: {{film}} })">Деталі</a></md-button>
+                <a  class="whiteLink" ui-sref=".detail({ filmId: {{film.id}}, film: {{film}} })">
+                    <md-button class="md-raised md-primary">Деталі</md-button>
+                </a>
             </md-card-footer>
         </md-card>
         <div layout="row" flex="grow" ng-repeat="film in $ctrl.filmList" ng-if="$ctrl.showAs == 'list'"
              ng-class-odd="'md-accent'" ng-class-even="'even'" layout-align="space-between stretch" layout-padding>
             <div flex="20">{{film.name}}</div>
             <div flex="10">{{film.year}}</div>
-            <div flex="10"><md-button class="md-raised md-primary"><a class="whiteLink " ui-sref=".detail({ filmId: {{film.id}}, film: {{film}} })">Деталі</a></md-button></div>
+            <div flex="10">
+                <a class="whiteLink " ui-sref=".detail({ filmId: {{film.id}}, film: {{film}} })">
+                    <md-button class="md-raised md-primary">
+                        Деталі
+                    </md-button>
+                </a>
+            </div>
         </div>
 </div>
