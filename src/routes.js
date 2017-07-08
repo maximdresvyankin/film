@@ -9,14 +9,17 @@ angular
 /** @ngInject */
 function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
   $locationProvider.html5Mode(false).hashPrefix('!');
-  $urlRouterProvider.otherwise('/home');
+  $urlRouterProvider.otherwise('/home/list');
 }
 
 function homeRoutesConfig($stateProvider) {
   $stateProvider
     .state('home', {
       url: '/home',
-      component: 'home'
+      views: {
+        '@': 'home',
+        'top@home': 'filmList'
+      }
     })
     .state('home.detail', {
       url: '/details/:filmId',
@@ -30,5 +33,11 @@ function homeRoutesConfig($stateProvider) {
     .state('home.register', {
       url: '/register',
       component: 'register'
+    })
+    .state('home.rented', {
+      url: '/rented',
+      views: {
+        'top@home': 'rentFilm'
+      }
     });
 }
