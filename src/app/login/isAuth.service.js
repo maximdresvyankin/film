@@ -8,7 +8,6 @@
 
   function isAuthService($cookies, $log) {
     // Set or Unset Credentials Block
-    $log.debug($cookies);
     this.authenticated = () => {
       this.token = $cookies.get('token');
       return Boolean(this.token);

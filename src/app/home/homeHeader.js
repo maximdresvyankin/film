@@ -33,6 +33,12 @@ function homeHeaderController(isAuthService,$filter) {
       name: 'Головна',
       registered: true,
       unRegistered: true
+    }, {
+      id: 4,
+      state: 'home.rented',
+      name: 'Орендовані фільми',
+      registered: true,
+      unRegistered: false
     }];
   vm.isAuth = isAuthService.authenticated() ? {registered:true} : {unRegistered:true};
   vm.showMenu = $filter('filter')(menu, vm.isAuth);

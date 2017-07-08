@@ -1,12 +1,12 @@
 angular
   .module('home')
-  .component('homeList', {
+  .component('home', {
     templateUrl: ['$element', '$attrs', 'isAuthService', ($element, $attrs, isAuthService) => {
       return `app/home/home.html`;
     }],
-    controller: homeListController
+    controller: homeController
   });
 
-function homeListController() {
+function homeController() {
   const vm = this;
 }

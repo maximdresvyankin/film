@@ -18,7 +18,7 @@
             </div>
         </div>
         <div class="getFilm" flex="grow" layout="row" layout-align="end center" layout-margin>
-            <div ng-if="$ctrl.isAuth"><a class="whiteLink"><md-button class="md-accent md-raised">Оренда фільма</md-button></a></div>
+            <rent-film tpl='Button' film-id = '$ctrl.film.id' ng-if="$ctrl.isAuth"></rent-film>
             <div ng-if="!$ctrl.isAuth">
                 <a class="whiteLink" ui-sref="home.login"><md-button class="md-accent md-raised">Увійдіть</md-button></a>
                 або
