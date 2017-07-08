@@ -9,7 +9,7 @@ angular
 /** @ngInject */
 function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
   $locationProvider.html5Mode(false).hashPrefix('!');
-  $urlRouterProvider.otherwise('/home/list');
+  $urlRouterProvider.otherwise('/home');
 }
 
 function homeRoutesConfig($stateProvider) {
