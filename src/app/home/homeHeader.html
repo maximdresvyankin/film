@@ -1,5 +1,10 @@
-<div class="navbab">
-    <a class="whiteLink" ui-sref="{{menu.state}}" ng-repeat="menu in $ctrl.showMenu | orderBy: 'id'"><md-button class="md-raised md-primary">
-        {{menu.name}}
-    </md-button></a>
+<div class="navbar" layout="row" layout-align="space-between center">
+    <div flex="80" class="menuContainer">
+        <a class="whiteLink" ui-sref="{{menu.state}}" ng-repeat="menu in $ctrl.showMenu | orderBy: 'id'"><md-button class="md-raised md-primary">
+            {{menu.name}}
+        </md-button></a>
+    </div>
+    <div class="logoutContainer">
+        <logout></logout>
+    </div>
 </div>
