@@ -22,7 +22,7 @@ function rentFilm(filmsService, $log, $scope) {
     });
   };
 
-  this.rentFilm = () => {
+  this.rentSingleFilm = () => {
     filmsService.rentFilm(this.filmId).then(response => {
       $log.debug(response);
     });
