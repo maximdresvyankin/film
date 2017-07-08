@@ -22,15 +22,26 @@ function filmsService(isAuthService, $resource, $log, APIHOST) {
   };
   this.token = token();
   /* Create Film $resource */
-  this.film = () => {
+  this.film = (headers = {}) => {
     return $resource(`${APIHOST}${URLS.filmList}`, {}, {
       get: {method: 'GET'},
-      update: {method: 'POST'}
+      save: {method: 'POST', headers}
     });
   };
-/* Get list of films and assign it to films variable */
+  /* Get list of films and assign it to films variable */
   this.filmList = () => {
     return this.film().get().$promise.then(response => {
+      this.films = response.result;
+      return this.films;
+    });
+  };
+
+  /* Get list of films and assign it to films variable */
+  this.addFilm = filmDetails => {
+    if (!this.token) {
+      return false;
+    }
+    return this.film({Authorization: `Bearer ${this.token}`}).save(filmDetails).$promise.then(response => {
       this.films = response.result;
       return this.films;
     });
@@ -47,7 +58,7 @@ function filmsService(isAuthService, $resource, $log, APIHOST) {
     if (!this.token) {
       return false;
     }
-    return this.rent({Authorization: `Bearer ${this.token}`}).save({'film_id': id}).$promise.then(response => {
+    return this.rent({Authorization: `Bearer ${this.token}`}).save({film_id: id}).$promise.then(response => {
       return response;
     });
   };

@@ -1,0 +1,71 @@
+<div layout="row">
+    <div class="preview" flex="50">
+        <div flex="grow" layout-margin>
+            <div layout="row"><h1>{{$ctrl.name}}</h1></div>
+            <div layout="row" flex="grow">
+                <div class="filmImage" flex="35">
+                    <img src="assets/foto_nordiskfilm.jpg" class="md-card-image" alt="image caption">
+                </div>
+                <div class="filmDetails" flex="65">
+                    <div class="year" layout="row" layout-align="start center">
+                        <p>Рік виходу на экрани: {{$ctrl.year}}</p>
+                    </div>
+                    <div class="genres" layout="row" layout-align="start center">
+                        <div class="md-subhead">Жанри:</div>
+                        <div class="badge" ng-repeat="genre in $ctrl.genresList">
+                            <span class="small">{{ genre.name }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form" flex="50">
+        <form method="post" flex="grow" novalidate layout="row" autocomplete="off"
+              layout-padding="true"
+              layout-align="center center"
+              name="$ctrl.addFilm">
+            <div layout="column" flex="70">
+                <md-input-container flex="grow" flex-xs="grow" layout="column">
+                    <div layout="row" layout-align="center stretch">
+                        <label>Назва</label>
+                        <input id="name" ng-model="$ctrl.name"
+                               name="name" type="text"
+                               required>
+                    </div>
+                    <div ng-messages="$ctrl.addFilm.name.$error" >
+                        <div ng-message="required">Це поле є обов'язковим</div>
+                    </div>
+
+                </md-input-container>
+                <md-input-container flex="grow" flex-xs="grow" layout="column" >
+                    <div layout="row" layout-align="center stretch">
+                        <label>Рік виходу на екран?</label>
+                        <input id="year" ng-model="$ctrl.year"
+                               name="age" type="range"
+                               min = 1900
+                               max ={{ $ctrl.currentYear }}>
+                    </div>
+                </md-input-container>
+                <md-input-container>
+                    <label>Жанри</label>
+                    <md-select ng-model="$ctrl.genresList" multiple required>
+                        <md-optgroup label="Жанри">
+                            <md-option ng-value="{id:1, name:'Comedy'}">Comedy</md-option>
+                            <md-option ng-value="{id:2, name:'Horror'}">Horror</md-option>
+                            <md-option ng-value="{id:3, name:'Drama'}">Drama</md-option>
+                        </md-optgroup>
+                    </md-select>
+                    <div ng-messages="$ctrl.addFilm.genres.$error" >
+                        <div ng-message="required">Це поле є обов'язковим</div>
+                    </div>
+                </md-input-container>
+                <div layout="row">
+                    <md-button flex="grow" ng-click="$ctrl.sendFilm()" class="md-raised md-accent md-hue-3"
+                               ng-disabled="$ctrl.addFilm.$invalid"> Додати
+                    </md-button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -23,8 +23,7 @@ function homeRoutesConfig($stateProvider) {
     })
     .state('home.detail', {
       url: '/details/:filmId',
-      component: 'filmDetail',
-      cache: false
+      component: 'filmDetail'
     })
     .state('home.login', {
       url: '/login',
@@ -39,5 +38,9 @@ function homeRoutesConfig($stateProvider) {
       views: {
         'top@home': 'rentFilm'
       }
+    })
+    .state('home.add', {
+      url: '/add',
+      component: 'addFilm'
     });
 }
