@@ -4,13 +4,11 @@
 angular
   .module('home')
   .component('filmList', {
-    templateUrl: ['$element', '$attrs', 'isAuthService', ($element, $attrs, isAuthService) => {
-      return `app/home/filmList.html`;
-    }],
+    templateUrl: `app/home/filmList.html`,
     controller: filmList
   });
 
-function filmList(filmsService, $log) {
+function filmList(filmsService) {
   this.$onInit = () => {
     filmsService.filmList().then(() => {
       this.filmList = filmsService.films;

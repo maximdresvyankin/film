@@ -5,7 +5,7 @@ angular
   .module('login')
   .service('filmsService', filmsService);
 
-function filmsService(isAuthService, $resource, $log, APIHOST) {
+function filmsService(isAuthService, $resource, APIHOST) {
   const URLS = {
     filmList: '/api/v1/film',
     rent: '/api/v1/film/rent',
@@ -63,7 +63,7 @@ function filmsService(isAuthService, $resource, $log, APIHOST) {
     });
   };
 
-/* Create finish rent $resource */
+  /* Create finish rent $resource */
   this.rentFinish = headers => {
     return $resource(`${APIHOST}${URLS.rentFinish}`, {}, {
       update: {method: 'POST', headers}
@@ -96,5 +96,4 @@ function filmsService(isAuthService, $resource, $log, APIHOST) {
       return this.rentedFilms;
     });
   };
-  $log.debug(this);
 }

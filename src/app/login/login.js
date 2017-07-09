@@ -8,7 +8,7 @@ angular
     controller: loginController
   });
 
-function loginController(loginService, isAuthService, $cookies, $state, $log) {
+function loginController(loginService, isAuthService, $cookies, $state) {
   const vm = this;
   vm.goLogin = goLogin;
   vm.showLogin = true;

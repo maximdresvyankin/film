@@ -4,9 +4,7 @@
 angular
   .module('home')
   .component('filmDetail', {
-    templateUrl: ['$element', '$attrs', 'isAuthService', ($element, $attrs, isAuthService) => {
-      return `app/home/detail.html`;
-    }],
+    templateUrl: `app/home/detail.html`,
     controller: filmDetail,
     require: '^filmList'
   });

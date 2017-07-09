@@ -4,13 +4,11 @@
 angular
   .module('home')
   .component('homeHeader', {
-    templateUrl: ['$element', '$attrs', 'isAuthService', ($element, $attrs, isAuthService) => {
-      return `app/home/homeHeader.html`;
-    }],
+    templateUrl: `app/home/homeHeader.html`,
     controller: homeHeaderController
   });
 
-function homeHeaderController(isAuthService,$filter) {
+function homeHeaderController(isAuthService, $filter) {
   const vm = this;
   const menu = [
     {
@@ -46,6 +44,6 @@ function homeHeaderController(isAuthService,$filter) {
       registered: true,
       unRegistered: false
     }];
-  vm.isAuth = isAuthService.authenticated() ? {registered:true} : {unRegistered:true};
+  vm.isAuth = isAuthService.authenticated() ? {registered: true} : {unRegistered: true};
   vm.showMenu = $filter('filter')(menu, vm.isAuth);
 }

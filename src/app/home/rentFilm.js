@@ -14,17 +14,17 @@ angular
     }
   });
 
-function rentFilm(filmsService, $log, $scope) {
+function rentFilm(filmsService) {
   this.$onInit = () => {
     filmsService.rentedFilmList().then(response => {
       this.list = response;
-      this.message = (this.list.length > 0) ? 'Все добре' : 'Все погано, адже API для додавання фільмів не працює';
+      this.message = (this.list.length > 0) ? 'Все добре' : 'Все погано, адже API для оренди фільмів не працює';
     });
   };
 
   this.rentSingleFilm = () => {
-    filmsService.rentFilm(this.filmId).then(response => {
-      $log.debug(response);
+    filmsService.rentFilm(this.filmId).then(() => {
+      /* Some working code needed */
     });
   };
 }
